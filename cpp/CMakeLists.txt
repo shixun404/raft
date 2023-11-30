@@ -156,7 +156,7 @@ if(NOT BUILD_CPU_ONLY)
 else()
   add_compile_definitions(BUILD_CPU_ONLY)
 endif()
-
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -lrt")
 if(NOT DISABLE_OPENMP)
   rapids_find_package(
     OpenMP REQUIRED
