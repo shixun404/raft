@@ -423,6 +423,7 @@ void minClusterAndDistanceCompute(
       raft::make_device_vector_view<const DataT, IndexT>(L2NormX.data_handle() + dIdx, ns);
 
     if (is_fused) {
+      //printf("Is fused!\n");
       workspace.resize((sizeof(int)) * ns, stream);
 
       // todo(lsugy): remove cIdx

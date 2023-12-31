@@ -93,7 +93,7 @@ std::vector<KMeansBenchParams> getKMeansInputs()
   p.blobs.center_box_min                            = -10.0;
   p.blobs.center_box_max                            = 10.0;
   p.blobs.seed                                      = 12345ULL;
-  p.kmeans.init                                     = raft::cluster::KMeansParams::KMeansPlusPlus;
+  p.kmeans.init                                     = raft::cluster::KMeansParams::Random; //previously KMeansPlusPlus
   p.kmeans.max_iter                                 = 300;
   p.kmeans.tol                                      = 1e-4;
   p.kmeans.verbosity                                = RAFT_LEVEL_INFO;
@@ -101,8 +101,8 @@ std::vector<KMeansBenchParams> getKMeansInputs()
   p.kmeans.inertia_check                            = true;
   std::vector<std::tuple<int, int, int>> row_cols_k = {
     {1000000, 20, 1000},
-    {3000000, 50, 20},
-    {10000000, 50, 5},
+    // {3000000, 50, 20},
+    // {10000000, 50, 5},
   };
   for (auto& rck : row_cols_k) {
     p.data.rows         = std::get<0>(rck);

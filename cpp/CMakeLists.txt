@@ -156,7 +156,7 @@ if(NOT BUILD_CPU_ONLY)
 else()
   add_compile_definitions(BUILD_CPU_ONLY)
 endif()
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -lrt")
+# set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -lrt")
 if(NOT DISABLE_OPENMP)
   rapids_find_package(
     OpenMP REQUIRED
@@ -206,7 +206,7 @@ target_include_directories(
 
 if(NOT BUILD_CPU_ONLY)
   # Keep RAFT as lightweight as possible. Only CUDA libs and rmm should be used in global target.
-  target_link_libraries(raft INTERFACE rmm::rmm cuco::cuco nvidia::cutlass::cutlass raft::Thrust)
+  target_link_libraries(raft INTERFACE rmm::rmm cuco::cuco nvidia::cutlass::cutlass raft::Thrust rt)
 endif()
 
 target_compile_features(raft INTERFACE cxx_std_17 $<BUILD_INTERFACE:cuda_std_17>)

@@ -79,7 +79,8 @@ if(BUILD_PRIMS_BENCH)
   )
 
   ConfigureBench(
-    NAME CLUSTER_BENCH PATH bench/prims/cluster/kmeans_balanced.cu bench/prims/cluster/kmeans.cu
+    #NAME CLUSTER_BENCH PATH bench/prims/cluster/kmeans_balanced.cu bench/prims/cluster/kmeans.cu
+    NAME CLUSTER_BENCH PATH bench/prims/cluster/kmeans.cu
     bench/prims/main.cpp OPTIONAL LIB EXPLICIT_INSTANTIATE_ONLY
   )
 
